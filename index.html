@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoreo de Actividad Física</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .sidebar {
+            width: 20%;
+            height: 100vh;
+            background-color: #343a40;
+            color: #fff;
+            position: fixed;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        .content {
+            margin-left: 20%;
+            padding: 20px;
+        }
+        .data-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .data-section .card {
+            flex: 1 1 22%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">Proyecto: Monitoreo de Actividad Física Remota</div>
+
+    <!-- Sidebar con información del paciente -->
+    <div class="sidebar">
+        <img src="https://via.placeholder.com/100" alt="Foto del paciente">
+        <h4>Datos del Paciente</h4>
+        <p>Nombre: Tomas Tubuerquia</p>
+        <p>Documento de Identidad: 1001369432</p>
+        <p>Edad: 21</p>
+        <p>Estatura: 1.68m</p>
+        <p>Peso: 65 kg</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h2 class="text-center">Estado del Paciente: <strong id="estado">Caminando</strong></h2>
+
+        <div class="data-section">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Activo</h5>
+                    <p class="card-text" id="activo">5</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Temperatura Ambiental</h5>
+                    <p class="card-text" id="tempAmbiente">36</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Humedad Ambiental</h5>
+                    <p class="card-text" id="humedadAmbiente">80</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Temp Corporal</h5>
+                    <p class="card-text" id="tempCorporal">37</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Histórico Temp Corporal</h5>
+                    <p class="card-text">80</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Saturación</h5>
+                    <p class="card-text" id="saturacion">98</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Valor Actual Ritmo Cardíaco</h5>
+                    <p class="card-text" id="ritmoCardiaco">80</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Histórico Ritmo Cardíaco</h5>
+                    <p class="card-text">80</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript para generar datos aleatorios -->
+    <script>
+        function generarDatosAleatorios() {
+            document.getElementById("activo").innerText = Math.floor(Math.random() * 10) + 1;
+            document.getElementById("tempAmbiente").innerText = Math.floor(Math.random() * 10) + 30;
+            document.getElementById("humedadAmbiente").innerText = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("tempCorporal").innerText = Math.floor(Math.random() * 2) + 36;
+            document.getElementById("saturacion").innerText = Math.floor(Math.random() * 5) + 95;
+            document.getElementById("ritmoCardiaco").innerText = Math.floor(Math.random() * 40) + 60;
+        }
+        setInterval(generarDatosAleatorios, 3000); // Actualiza cada 3 segundos
+    </script>
+</body>
+</html>
